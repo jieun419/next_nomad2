@@ -17,7 +17,7 @@ const Movie = ({ id, title, poster_path }: MoviePropsT) => {
   }
   return (
     <div className={styles.movie}>
-      <img src={poster_path} alt={id} onClick={onClick} />
+      <img src={poster_path} alt={title} onClick={onClick} />
       <Link href={`/movie/${id}`}>{title}</Link>
     </div>
   );
