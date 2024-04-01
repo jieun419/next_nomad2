@@ -133,6 +133,7 @@ table {
 
 html,
 body {
+  padding-top: 150px;
   max-width: 100vw;
   overflow-x: hidden;
   background-color: #222;
