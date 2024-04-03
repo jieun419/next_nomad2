@@ -1,8 +1,18 @@
 import { Suspense } from "react";
-import MovieInfo from "../../../components/movie-info";
+import MovieInfo, { getMovise } from "../../../components/movie-info";
 import MovieVideos from "../../../components/movie-videos";
+interface Iparams {
+  params: { id: string }
+}
 
-const MovieDetail = async ({ params: { id } }: { params: { id: string } }) => {
+export const generateMetadata = async ({ params: { id } }: Iparams) => {
+  const movie = await getMovise(id);
+  return {
+    title: movie.title,
+  }
+};
+
+const MovieDetailPage = async ({ params: { id } }: Iparams) => {
   return (
     <div>
       <Suspense fallback={<h1>Loading movie info...</h1>}>
@@ -15,4 +25,4 @@ const MovieDetail = async ({ params: { id } }: { params: { id: string } }) => {
   );
 };
 
-export default MovieDetail;
+export default MovieDetailPage;
