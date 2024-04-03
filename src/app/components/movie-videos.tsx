@@ -1,9 +1,10 @@
-import { API_URL } from "@/app/(home)/page";
 import styles from "../styles/movie-video.module.css";
+import { config } from "@/config";
+import { IvideosT } from "@/types/type";
 
 const getVideos = async (id: string) => {
   console.log(`Fetching videos: ${Date.now()}`);
-  const res = await fetch(`${API_URL}/${id}/videos`);
+  const res = await fetch(`${config.moviesApi}/${id}/videos`);
   return res.json();
 }
 
@@ -12,7 +13,7 @@ const MovieVideos = async ({ id }: { id: string }) => {
   return (
     <div className={styles.container}>
       {
-        video.map(((video) =>
+        video.map(((video: IvideosT) =>
           <iframe
             key={video.id}
             src={`https://youtube.com/embed/${video.key}`}
