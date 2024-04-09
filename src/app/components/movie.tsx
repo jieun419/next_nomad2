@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/movie.module.css";
 import { useRouter } from "next/navigation";
@@ -17,7 +18,9 @@ const Movie = ({ id, title, poster_path }: MoviePropsT) => {
   }
   return (
     <div className={styles.movie}>
-      <img src={poster_path} alt={title} onClick={onClick} />
+      <div className={styles.imgWrap}>
+        <Image src={poster_path} fill alt={title} onClick={onClick} />
+      </div>
       <Link prefetch href={`/movie/${id}`}>{title}</Link>
     </div>
   );
