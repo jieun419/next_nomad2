@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "../styles/movie.info.module.css";
-import { getMovise } from "../services/movieApi";
+import { getMovies } from "../services/movieApi";
 
 const MovieInfo = async ({ id }: { id: string }) => {
-  const movie = await getMovise(id);
+  const movie = await getMovies(id);
   return (
     <div className={styles.container}>
       <div className={styles.imgWrap}>

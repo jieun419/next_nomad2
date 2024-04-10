@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import MovieInfo from "../../../components/movie-info";
 import MovieVideos from "../../../components/movie-videos";
-import { getMovise } from "@/app/services/movieApi";
+import { getMovies } from "@/app/services/movieApi";
 interface Iparams {
   params: { id: string }
 }
 
 export const generateMetadata = async ({ params: { id } }: Iparams) => {
-  const movie = await getMovise(id);
+  const movie = await getMovies(id);
   return {
     title: movie.title,
   }
