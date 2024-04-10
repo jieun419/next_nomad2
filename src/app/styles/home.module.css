@@ -1,8 +1,11 @@
-.container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+.movieListContainer {
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
+}
+
+.movieListWrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
 }
