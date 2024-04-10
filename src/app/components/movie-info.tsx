@@ -1,13 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/movie.info.module.css";
-import { config } from "@/config";
-
-export const getMovise = async (id: string) => {
-  console.log(`Fetching movies: ${Date.now()}`)
-  await new Promise((res) => setTimeout(res, 5000));
-  const res = await fetch(`${config.moviesApi}/${id}`);
-  return res.json();
-}
+import { getMovise } from "../services/movieApi";
 
 const MovieInfo = async ({ id }: { id: string }) => {
   const movie = await getMovise(id);
