@@ -1,0 +1,45 @@
+.movieHot {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+  place-items: center;
+  padding-left: 60px;
+}
+
+.movieHot img {
+  max-width: 100%;
+  min-height: 100%;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.movieHot .imgWrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 150%;
+}
+
+.hotNum {
+  position: absolute;
+  font-size: 6rem;
+  font-weight: bold;
+  bottom: -1rem;
+  left: 1rem;
+  transform: skewX(-15deg);
+  z-index: 1;
+}
+
+.movieHot img {
+  opacity: 0.7;
+}
+
+.movieHot img:hover {
+  opacity: 1;
+}
+
+.movieHot a {
+  text-align: center;
+}
