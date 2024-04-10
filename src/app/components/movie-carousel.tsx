@@ -8,60 +8,46 @@ import MovieHot from "./movie-hot";
 
 
 const MovieCarousel = ({ movies }: { movies: ImoviesT[] }) => {
-  const voteAverage = movies.sort((a, b) => b.vote_average - a.vote_average).slice(10)
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const carouselContRef = useRef<HTMLDivElement>(null);
+  const voteAverage = movies.sort((a, b) => b.vote_average - a.vote_average).slice(10);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const nextDis = currentIndex >= 2 ? styles.disNone : styles.disBlock;
+  const prevDis = currentIndex > 0 ? styles.disBlock : styles.disNone;
 
-  const movePrev = () => {
+  const handlerPrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
 
-  }
-  const moveNext = () => {
+  };
+
+  const handlerNext = () => {
     if (currentIndex <= 2) {
       setCurrentIndex(currentIndex + 1);
     }
-  }
+  };
 
   useEffect(() => {
     if (carouselRef.current) {
-      // const sliderClone = carouselRef.current?.firstElementChild?.cloneNode(true);
-      // console.log('sliderClone', sliderClone)
-      // if (sliderClone) {
-      //   carouselRef.current?.appendChild(sliderClone);
-      // }
-
+      carouselRef.current.style.transition = "all 0.6s";
       if (currentIndex > 0) {
-        carouselRef.current.style.marginLeft = `${currentIndex * 100}%`;
+        carouselRef.current.style.transform = `translateX(${currentIndex * 25}%)`;
       }
       if (currentIndex <= 2) {
-        carouselRef.current.style.marginLeft = `-${currentIndex * 100}%`;
+        carouselRef.current.style.transform = `translateX(-${currentIndex * 25}%)`;
       }
     }
-
-    if (currentIndex === 3) {
-      setTimeout(() => {
-        if (carouselRef.current) {
-          carouselRef.current.style.marginLeft = '0';
-
-          setCurrentIndex(0);
-        }
-      }, 100)
-    }
-    console.log('currentIndex', currentIndex)
-  }, [currentIndex])
+  }, [currentIndex]);
 
   return (
-    <section ref={carouselContRef} className={styles.carouselContainer}>
+    <section className={styles.carouselContainer}>
       <div ref={carouselRef} className={styles.carouselWrap}>
         {voteAverage.map((movie: ImoviesT, idx) => (
           <MovieHot key={movie.id} id={movie.id} title={movie.title} idx={idx} poster_path={movie.poster_path} />
         ))}
       </div>
-      <button className={styles.prevBtn} onClick={movePrev}><Arrow type='left' /></button>
-      <button className={styles.nextBtn} onClick={moveNext}><Arrow type='right' /></button>
+      <button className={`${styles.prevBtn} ${prevDis}`} onClick={handlerPrev}><Arrow type='left' /></button>
+      <button className={`${styles.nextBtn} ${nextDis}`} onClick={handlerNext}><Arrow type='right' /></button>
     </section>
   );
 };
