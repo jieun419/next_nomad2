@@ -1,11 +1,12 @@
 import Image from "next/image";
 import styles from "../styles/movie-info.module.css";
+import globalStyles from "../styles/movie-common.module.css";
 import { getMovies } from "../services/movieApi";
 
 const MovieInfo = async ({ id }: { id: string }) => {
   const movie = await getMovies(id);
   return (
-    <article className={styles.container}>
+    <article className={globalStyles.container}>
       <div className={styles.backdropWrap}>
         <Image src={movie.backdrop_path} alt={movie.backdrop_path} fill className={styles.backdrop} />
       </div>
