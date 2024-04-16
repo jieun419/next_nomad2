@@ -20,7 +20,7 @@ const MovieDetailPage = async ({ params: { id } }: Iparams) => {
         <MovieInfo id={id} />
       </Suspense>
       <Suspense fallback={<h1>Loading movie videos...</h1>}>
-        <MovieVideos id={id} />
+        {/* <MovieVideos id={id} /> */}
       </Suspense>
     </div>
   );
