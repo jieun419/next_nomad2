@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import MovieInfo from "../../../components/movie-info";
 import MovieVideos from "../../../components/movie-videos";
 import { getMovies } from "@/app/services/movieApi";
+import MovieCredits from "@/app/components/movie-credits";
 interface Iparams {
   params: { id: string }
 }
@@ -18,6 +19,9 @@ const MovieDetailPage = async ({ params: { id } }: Iparams) => {
     <div>
       <Suspense fallback={<h1>Loading movie info...</h1>}>
         <MovieInfo id={id} />
+      </Suspense>
+      <Suspense fallback={<h1>Loading credit info...</h1>}>
+        <MovieCredits id={id} />
       </Suspense>
       <Suspense fallback={<h1>Loading movie videos...</h1>}>
         {/* <MovieVideos id={id} /> */}
