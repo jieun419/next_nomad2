@@ -1,8 +1,21 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.movieListContainer {
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
+}
+
+.movieListWrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.title {
+  margin-bottom: 1rem;
 }

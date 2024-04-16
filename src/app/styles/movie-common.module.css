@@ -1,0 +1,10 @@
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.infoTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}

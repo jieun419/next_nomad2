@@ -1,6 +1,8 @@
+import LoadingBox from "../components/loading-box";
+
 const Loading = () => {
   return (
-    <h2>Loading...</h2>
+    <LoadingBox />
   );
 };
 

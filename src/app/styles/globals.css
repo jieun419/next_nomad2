@@ -150,5 +150,11 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
 }

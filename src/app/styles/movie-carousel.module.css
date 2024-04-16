@@ -1,0 +1,45 @@
+.carouselContainer {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-left: 0.65rem;
+}
+
+.carouselContainer .carouselWrap {
+  width: 200%;
+  display: flex;
+  gap: 10px;
+  transition: all 0.4s;
+}
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #00000066;
+  height: 100%;
+  padding: 0 0.5rem;
+  transition: all 0.3s;
+}
+
+.disNone {
+  display: none;
+}
+
+.disBlock {
+  display: block;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+  background-color: #000;
+}
+
+.prevBtn {
+  left: 0;
+}
+
+.nextBtn {
+  right: 0;
+}
